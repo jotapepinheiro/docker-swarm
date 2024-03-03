@@ -13,7 +13,7 @@ docker network create -d overlay --attachable swarm
 - Subir serviços no Swarm
 
 ```sh
-docker stack deploy -c docker-swarm.yml application
+docker stack deploy -c docker-swarm.yml app-laravel
 ```
 
 - Derrubar serviços no Swarm
