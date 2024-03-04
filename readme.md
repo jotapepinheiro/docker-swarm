@@ -1,3 +1,25 @@
+- Criar rede para Portainer
+
+```sh
+# O Portainer possui dois serviços: o próprio Portainer e o Agent.
+# O Agent é responsável por monitorar as máquinas no swarm.
+# É importante criar essa rede antes de subir a stack.
+
+docker network create --driver=overlay agent_network
+```
+
+- Criar rede para Nginx Proxy Manager
+
+```sh
+docker network create --driver=overlay npm_public
+```
+
+- Subir Portainer
+
+```sh
+docker stack deploy -c stack-portainer.yaml portainer
+```
+
 - Iniciar o Swarm na Aplicação Docker
 
 ```sh
@@ -19,7 +41,7 @@ docker stack deploy -c docker-swarm.yml app-laravel
 - Derrubar serviços no Swarm
 
 ```sh
-docker stack rm application
+docker stack rm app-laravel
 ```
 
 - Ver serviços em execução
@@ -93,7 +115,7 @@ sudo usermod -aG sudo usuarioX
 
 ```sh
 docker service ls
-docker service ps --no-trunc application_web
+docker service ps --no-trunc app-laravel_web
 ```
 
 - <b>Erro de Bridge Network, em caso de Iptables com OpenVZ</b><br>
