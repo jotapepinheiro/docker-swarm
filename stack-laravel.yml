@@ -1,15 +1,17 @@
 version: "3.9"
+
 services:
   web:
     image: joaopinheiro/php:8.2.4-octane
-    networks:
-      - swarm
-      - npm_public
-    volumes:
-      # - ./app:/var/www/app
-      # - ./nginx-sites.conf:/etc/nginx/sites-enabled/default.conf
-      - ./nginx-octane-sites.conf:/etc/nginx/sites-enabled/default.conf # Alterar alquivo nginx padrão
+    #volumes:
+    # - ./app:/var/www/app
+    # - ./nginx-sites.conf:/etc/nginx/sites-enabled/default.conf
+    #- ./nginx-octane-sites.conf:/etc/nginx/sites-enabled/default.conf # Alterar alquivo nginx padrão
+    ports:
+      - 8080:80
+      - 4443:443
     deploy:
+      mode: replicated
       replicas: 2
       resources:
         limits:
@@ -20,13 +22,9 @@ services:
           memory: 20M
       restart_policy:
         condition: on-failure
-    ports:
-      - "80:80"
-      - "443:443"
+    networks:
+      - npm_public
 
 networks:
-  swarm:
-    external: true
-    name: swarm
   npm_public:
     external: true

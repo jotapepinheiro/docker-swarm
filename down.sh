@@ -1,1 +1,1 @@
-docker stack rm app-laravel
+docker stack rm web
