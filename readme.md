@@ -17,7 +17,7 @@ docker network create --driver=overlay npm_public
 - Subir Portainer
 
 ```sh
-docker stack deploy -c stack-portainer.yaml portainer
+docker stack deploy -c stack_portainer.yaml portainer
 ```
 
 - Iniciar o Swarm na Aplicação Docker
