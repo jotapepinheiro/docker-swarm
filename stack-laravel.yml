@@ -4,6 +4,7 @@ services:
     image: joaopinheiro/php:8.2.4-octane
     networks:
       - swarm
+      - npm_public
     volumes:
       # - ./app:/var/www/app
       # - ./nginx-sites.conf:/etc/nginx/sites-enabled/default.conf
@@ -27,3 +28,5 @@ networks:
   swarm:
     external: true
     name: swarm
+  npm_public:
+    external: true
