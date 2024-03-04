@@ -1,1 +1,1 @@
-docker stack deploy -c docker-swarm.yml app-laravel
+docker stack deploy -c stack-laravel.yml app-laravel

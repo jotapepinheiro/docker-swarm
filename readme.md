@@ -17,7 +17,7 @@ docker network create --driver=overlay npm_public
 - Subir Portainer
 
 ```sh
-docker stack deploy -c stack_portainer.yaml portainer
+docker stack deploy -c stack-portainer.yml portainer
 ```
 
 - Iniciar o Swarm na Aplicação Docker
@@ -35,7 +35,7 @@ docker network create -d overlay --attachable swarm
 - Subir serviços no Swarm
 
 ```sh
-docker stack deploy -c docker-swarm.yml app-laravel
+docker stack deploy -c stack-laravel.yml app-laravel
 ```
 
 - Derrubar serviços no Swarm
