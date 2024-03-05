@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.8"
 
 services:
   web:
@@ -8,8 +8,8 @@ services:
     # - ./nginx-sites.conf:/etc/nginx/sites-enabled/default.conf
     #- ./nginx-octane-sites.conf:/etc/nginx/sites-enabled/default.conf # Alterar alquivo nginx padrão
     ports:
-      - 8080:80
-      - 4443:443
+      - "8090:80"
+      - "4443:443"
     deploy:
       mode: replicated
       replicas: 2
@@ -28,3 +28,4 @@ services:
 networks:
   npm_public:
     external: true
+    attachable: true

@@ -14,16 +14,16 @@ docker network create --driver=overlay agent_network
 docker network create --driver=overlay npm_public
 ```
 
-- Subir Portainer
-
-```sh
-docker stack deploy -c stack-portainer.yml portainer
-```
-
 - Iniciar o Swarm na Aplicação Docker
 
 ```sh
 docker swarm init
+```
+
+- Subir Portainer
+
+```sh
+docker stack deploy -c stack-portainer.yml portainer
 ```
 
 - Criar rede para o Swarm

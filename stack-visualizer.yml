@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8888:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    networks:
+      - npm_public
+
+networks:
+  npm_public:
+    external: true
+    attachable: true
