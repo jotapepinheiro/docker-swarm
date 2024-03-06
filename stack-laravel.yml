@@ -13,6 +13,9 @@ services:
     deploy:
       mode: replicated
       replicas: 2
+      placement:
+        constraints:
+          - node.role == worker
       resources:
         limits:
           cpus: "1"
